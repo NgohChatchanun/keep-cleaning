@@ -30,7 +30,7 @@ p {
 
 canvas {
     display: block;
-    width: min(400px, 90vw);
+    width: min(400px, calc(100vw - 24px));
     height: auto;
     margin: 20px auto;
 
