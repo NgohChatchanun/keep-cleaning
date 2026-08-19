@@ -159,7 +159,7 @@ function draw() {
 
 
 //mouse handler
-canvas.addEventListener("mousemove", function(event) {
+canvas.addEventListener("pointermove", function(event) {
 	if (!gameStarted) {
     return;
 	}
