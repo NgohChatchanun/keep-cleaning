@@ -159,11 +159,25 @@ function draw() {
 
 
 // mouse + touch handler
+canvas.addEventListener("pointerdown", function(event) {
+    if (!gameStarted) {
+        return;
+    }
+
+    cleanAtPointer(event);
+});
+
 canvas.addEventListener("pointermove", function(event) {
     if (!gameStarted) {
         return;
     }
 
+    if (event.buttons > 0 || event.pointerType === "touch") {
+        cleanAtPointer(event);
+    }
+});
+
+function cleanAtPointer(event) {
     const rect = canvas.getBoundingClientRect();
 
     const scaleX = canvas.width / rect.width;
@@ -195,7 +209,7 @@ canvas.addEventListener("pointermove", function(event) {
         "Blocks remaining: " + blocks.length;
 
     draw();
-});
+}
 
 
 draw();
