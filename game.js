@@ -69,9 +69,12 @@ function createBlocks() {
         let col;
 
         do {
-            row = Math.floor(Math.random() * 10);
-            col = Math.floor(Math.random() * 10);
-        } while (isPositionUsed(blocks, row, col));
+    		const numRows = Math.floor(canvas.height / CELL_SIZE);
+    		const numCols = Math.floor(canvas.width / CELL_SIZE);
+
+    		row = Math.floor(Math.random() * numRows);
+    		col = Math.floor(Math.random() * numCols);
+	} while (isPositionUsed(blocks, row, col));
 
         const random = Math.floor(Math.random() * colors.length);
         const color = colors[random];
