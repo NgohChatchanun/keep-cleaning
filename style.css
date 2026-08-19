@@ -30,6 +30,8 @@ p {
 
 canvas {
     display: block;
+    width: min(400px, 90vw);
+    height: auto;
     margin: 20px auto;
 
     background-color: #fffdf8;
@@ -68,9 +70,18 @@ button:hover {
 
 #message {
     font-weight: bold;
-    font-size: 19px;
+    font-style: italic;
+    font-size: 26px;
     color: #6b7568;
-    min-height: 28px;
-    margin: 10px;
+    min-height: 36px;
+    margin: 16px 10px;
+    line-height: 1.4;
 }
 
+#instructions {
+    max-width: 500px;
+    margin: 0 auto 16px auto;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #667064;
+}
