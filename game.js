@@ -158,28 +158,33 @@ function draw() {
 }
 
 
-//mouse handler
+// mouse + touch handler
 canvas.addEventListener("pointermove", function(event) {
-	if (!gameStarted) {
-    return;
-	}
+    if (!gameStarted) {
+        return;
+    }
 
-    eraserX = event.offsetX;
-    eraserY = event.offsetY;
+    const rect = canvas.getBoundingClientRect();
+
+    const scaleX = canvas.width / rect.width;
+    const scaleY = canvas.height / rect.height;
+
+    eraserX = (event.clientX - rect.left) * scaleX;
+    eraserY = (event.clientY - rect.top) * scaleY;
 
     for (let i = 0; i < blocks.length; i++) {
         const block = blocks[i];
 
         if (isColliding(block)) {
-    	blocks.splice(i, 1);
+            blocks.splice(i, 1);
 
-    	score++;
+            score++;
 
-    	document.getElementById("score").textContent =
-        "Blocks cleaned: " + score;
+            document.getElementById("score").textContent =
+                "Blocks cleaned: " + score;
 
-    	break;
-	}
+            break;
+        }
     }
 
     if (blocks.length === 0) {
